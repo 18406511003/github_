@@ -1,0 +1,1742 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>模拟考试系统</title>
+<link href="app/core/styles/css/bootstrap.css" rel="stylesheet">
+<link href="app/core/styles/css/layoutit.css" rel="stylesheet">
+<link href="app/exam/styles/css/plugin.css" rel="stylesheet">
+<!–[if lt IE9]>
+<script src="app/core/styles/js/html5.js"></script>
+<![endif]–>
+<!-- Le styles -->
+<link href="app/core/styles/css/datepicker.css" rel="stylesheet">
+<script type="text/javascript" src="app/core/styles/js/jquery.min.js"></script>
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+<script src="app/core/styles/js/html5shiv.js"></script>
+<script type="text/javascript" src="app/core/styles/js/jquery-1.9.1.min.js"></script>
+<![endif]-->
+<link media="all" rel="stylesheet" href="app/exam/styles/assets/css/item.css" type="text/css">
+<link rel="stylesheet" href="app/exam/styles/assets/js/mathquill/mathquill.css" type="text/css">
+<link rel="stylesheet" type="text/css" href="app/exam/styles/assets/css/site.css">
+<link href="app/core/styles/css/jquery-ui.css" rel="stylesheet" />
+<link media="all" rel="stylesheet" href="app/exam/styles/assets/css/calculator.css" type="text/css" />
+<link href="app/exam/styles/css/global.css" rel="stylesheet" type="text/css" />
+<link href="app/exam/styles/css/style.css" rel="stylesheet" type="text/css" />
+<link href="app/exam/styles/css/exam_paper.css" rel="stylesheet" type="text/css" />
+<script src="app/exam/styles/js/SpryCollapsiblePanel.js" type="text/javascript"></script>
+<script src="app/exam/styles/js/lib.js"></script>
+<script src="app/exam/styles/js/index.js"></script>
+<script src="app/exam/styles/js/lesson_nav.js" type="text/javascript"></script>
+<script src="app/exam/styles/js/plugin.js"></script>
+<script src="files/public/js/jquery.countdown.js"></script>
+<script src="files/public/js/artDialog.js?skin=default"></script>
+<script type="text/javascript" src="app/exam/styles/js/mathquill.min.js"></script>
+<script type="text/javascript" src="app/core/styles/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="app/core/styles/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="app/core/styles/js/jquery-ui.js"></script>
+<script type="text/javascript" src="app/core/styles/js/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="app/core/styles/js/swfu/swfupload.js"></script>
+<script type="text/javascript" src="app/core/styles/js/plugin.js"></script>
+</head><body>
+<!--导航-->
+<div id="nav">
+	<div class="float_r">
+				<a href="javascript:;">加入收藏</a>
+	</div>
+	您好，<span class="blue">ASS</span><a href="index.php?user-app">[个人中心]</a><a href="index.php?user-app-logout">[退出]</a>
+</div>
+<!--头部-->
+<div id="head">
+	<div id="banner">
+		<h1 style="line-height:100px;color:#FFFFFF;">无纸化模拟考试系统</h1>
+	</div>
+</div>
+<!--主体--><!--主体-->
+<div id="main">
+	<!--主体左侧-->
+		<!--主体左侧-->
+	<div id="main_left" class="main_left">
+    	<div id="lesson_nav_top"></div>
+    	<div id="lesson_nav_mid">
+        	<!--科目导航-->
+			<ul id="lesson_menu" class="menu">
+              <li>
+                <div class="menu-hd"><span id="lesson-current"><a rel="reload" class="collapsible" href="#zl_1">河南近代史</a></span></div>
+                <div id="zl_1" class="menu-bd" style="display:none">
+                  <dl>
+                  	                  	<dd><a title="河南近代史" href="#zl_1" onclick="javascript:$.get('index.php?exam-app-index-setCurrentBasic&basicid=1&'+Math.random(),function(data){window.location.reload();});">河南近代史</a></dd>
+                  	                  	                  	<dd><a title="江西近代史" href="#zl_2" onclick="javascript:$.get('index.php?exam-app-index-setCurrentBasic&basicid=2&'+Math.random(),function(data){window.location.reload();});">江西近代史</a></dd>
+                  	                  	                  </dl>
+                </div>
+              </li>
+    		</ul>
+            <ol class="menu_con">
+      			<li><a href="?exam-app-basics">我的考场</a></li>
+      			<li><a href="?exam-app-exercise">强化训练</a></li>
+                <li><a href="?exam-app-exampaper">随机考试</a></li>
+                <li><a href="?exam-app-exam">正式考试</a></li>
+                <li class="on"><a href="?exam-app-record">我的错题</a></li>
+                <li><a href="?exam-app-favor">我的收藏</a></li>
+                <li><a href="?exam-app-history">答题记录</a></li>
+         	</ol>
+          <!--科目导航 结束-->
+        </div>
+    	<div id="lesson_nav_bottom"></div>
+    </div>
+	<!--主体左侧 结束-->	<!--主体左侧 结束-->
+	<!--主体右侧 -->
+	<div id="right_760" class="right_760">
+    	<div id="bread"><a href="?exam-app"><img src="app/exam/styles/image/home_btn.jpg" class="float_r"/></a><div id="place"><a href="index.php?exam">模拟考试系统</a></div></div>    	<div class="bor_top"></div>
+    	<div class="bor_mid">
+    		<div id="hide_left"><a href="javascript:pr()"></a></div>
+            <div id="exam_paper">
+            <form action="?exam-app-exampaper-score" id="form1" name="form1" method="post">
+            	<h2 class="page_title">
+                	<img src="app/exam/styles/image/exam_tit.jpg" alt="考试须知" />
+                  </h2>
+       	    	<h1>近代史课测试</h1>
+                <h5>总分：<span class="orange">100</span>分 合格分数线：<span class="orange">60</span>分 考试时间：<span class="orange"></span>分钟</h5>
+                                                                                                <h4 class="qu_type">一、单选题</h4>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>1、新民主主义革命时期，在上海召开的中国共产党全国代表大会是（）。</h3>
+                    <ul>
+                    	<p>A、一大二大三大</p><p>B、二大三大五大</p><p>C、一大二大四大</p><p>D、一大四大七大</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_2" id="formquestion_2" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('2');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】C</li>
+                        	<li><span class="blue">【您的答案】</span>A</li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>2、1946年8月、毛泽东在延安会见美国进步女记者安娜?路易斯?斯特朗时提出了的著名论断（）。</h3>
+                    <ul>
+                    	<p>A、枪杆子里出政权</p><p>B、东风压倒西风</p><p>C、一切反动派都是纸老虎</p><p>D、没有调查就没有发言权</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_15" id="formquestion_15" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('15');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】C</li>
+                        	<li><span class="blue">【您的答案】</span>A</li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>3、以下不属于党的三大作风的内容是（）。</h3>
+                    <ul>
+                    	<p>A、理论和实践相结合的作风</p><p>B、艰苦朴素的作风</p><p>C、与人民群众紧密地联系在一起的作风</p><p>D、批评及自我批评的作风</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_25" id="formquestion_25" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('25');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】B</li>
+                        	<li><span class="blue">【您的答案】</span>A</li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>4、粉碎"四人帮"后，党中央、国务院决定恢复在"文化大革命"中被废弃的学校招生考试制度。（）年冬，全国高等学校重新开始通过统一考试招收新生。</h3>
+                    <ul>
+                    	<p>A、1976</p><p>B、1977</p><p>C、1978</p><p>D、1979</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_30" id="formquestion_30" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('30');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】B</li>
+                        	<li><span class="blue">【您的答案】</span>A</li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>6、1978年5月11日,《光明日报》发表题为（）的特约评论员文章。由此,一场关于真理标准问题的大讨论在全国展开。</h3>
+                    <ul>
+                    	<p>A、《马克思主义的一个最基本的原则》</p><p>B、《关于真理的标准问题》</p><p>C、《实践是检验真理的唯一标准》</p><p>D、《解放思想,实事求是,团结一致向前看》</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_48" id="formquestion_48" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('48');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】C</li>
+                        	<li><span class="blue">【您的答案】</span>A</li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>7、世界和平与发展的主要障碍是（）。</h3>
+                    <ul>
+                    	<p>A、宗教问题和领土争端</p><p>B、恐怖主义和民族矛盾</p><p>C、贫富差距和地区冲突</p><p>D、霸权主义和强权政治</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_51" id="formquestion_51" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('51');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】D</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>8、学习贯彻"三个代表"重要思想，根本目的是（）。</h3>
+                    <ul>
+                    	<p>A、推动全党更好地带领人民群众把中国特色社会主义事业推向前进</p><p>B、实现全面建设小康社会的宏伟目标</p><p>C、用科学理论武装全体人民</p><p>D、完善公有制为主体的多种所有制并存的制度</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_59" id="formquestion_59" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('59');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】A</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>9、科学发展观的实质是（）。</h3>
+                    <ul>
+                    	<p>A、速度至关重要</p><p>B、以人为本</p><p>C、要实现经济社会更好更快地发展</p><p>D、全面协调可持续</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_62" id="formquestion_62" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('62');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】C</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>10、（）是科学发展的受益者，也是科学发展的实践者和推动者。</h3>
+                    <ul>
+                    	<p>A、人民群众</p><p>B、领导干部</p><p>C、知识分子</p><p>D、全体公民</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_69" id="formquestion_69" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('69');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】A</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>11、中国载人航天工程新闻发言人2010年10月27日表示，我国（）工程已正式启动实施，2020年前后将建成规模较大、长期有人参与的国家级太空实验室。</h3>
+                    <ul>
+                    	<p>A、载人空间站</p><p>B、绕月探测</p><p>C、登月探测</p><p>D、载人航空器</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_100" id="formquestion_100" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('100');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】A</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>12、中华人民共和国第一次以五大国之一的地位参加讨论重大国际问题的国际会议是( )。</h3>
+                    <ul>
+                    	<p>A、日内瓦会议</p><p>B、亚非会议</p><p>C、万隆会议</p><p>D、多哈会议</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_121" id="formquestion_121" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('121');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】A</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>13、( ),我国成功地爆炸第一颗原子弹,有力地打破了超级大国的核垄断和核讹诈,提高了我国的国际地位。</h3>
+                    <ul>
+                    	<p>A、1964年10月6日</p><p>B、1965年10月16日</p><p>C、1964年10月16日</p><p>D、1963年10月6日</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_123" id="formquestion_123" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('123');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】C</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>14、1978年12月18日至22日，中共十一届三中全会在北京召开。会议作出把党和国家的工作重点转移到（）上来等一系列重大决策，实现了建国以来党的历史上具有深远意义的伟大转折。从此，我国进入改革开放和社会主义现代化建设的新时期。</h3>
+                    <ul>
+                    	<p>A、全面开展拨乱反正</p><p>B、社会主义现代化建设</p><p>C、国民经济调整</p><p>D、经济建设</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_133" id="formquestion_133" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('133');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】B</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>15、( )10月，毛泽东率红一方面军攻打吉安取得胜利，使湘赣苏区与赣西南苏区连成一片，成为全国最大的苏区，"中央苏区"名称从此叫响。</h3>
+                    <ul>
+                    	<p>A、1930</p><p>B、1931</p><p>C、1929</p><p>D、1932</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_136" id="formquestion_136" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('136');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】A</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>16、全国解放战争三大战役中，历时最长、规模最大、歼敌数量最多的是(A)。</h3>
+                    <ul>
+                    	<p>A、淮海战役</p><p>B、平津战役</p><p>C、辽沈战役</p><p>D、渡江战役</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_140" id="formquestion_140" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('140');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】A</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>17、十八次党章于2012年11月（）日通过。</h3>
+                    <ul>
+                    	<p>A、8</p><p>B、14</p><p>C、15</p><p>D、16</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_154" id="formquestion_154" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('154');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】B</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>18、"一切为了群众，一切依靠群众，从群众中来，到群众中去。"这是对（）的表述。</h3>
+                    <ul>
+                    	<p>A、党的思想路线</p><p>B、党的政治路线</p><p>C、党的组织路线</p><p>D、党的群众路线</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_182" id="formquestion_182" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('182');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】D</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>19、民主集中制既是党的根本组织原则，也是（）在党的生活中的运用。</h3>
+                    <ul>
+                    	<p>A、群众路线</p><p>B、党的领导</p><p>C、实事求是</p><p>D、执政为民</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_188" id="formquestion_188" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('188');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】A</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>20、党必须按照总揽全局、（）的原则，在同级各种组织中发挥领导核心作用。</h3>
+                    <ul>
+                    	<p>A、统筹兼顾</p><p>B、协调各方</p><p>C、执政为民</p><p>D、宣传教育</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_190" id="formquestion_190" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('190');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】B</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>21、党必须在宪法和（）的范围内活动。</h3>
+                    <ul>
+                    	<p>A、党章</p><p>B、党规</p><p>C、法律</p><p>D、法规</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_192" id="formquestion_192" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('192');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】C</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>22、党章规定，可以申请入党的年龄为年满（）。</h3>
+                    <ul>
+                    	<p>A、14岁</p><p>B、16岁</p><p>C、18岁</p><p>D、20岁</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_194" id="formquestion_194" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('194');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】C</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>23、基层党组织要密切联系群众，经常了解群众对（）、党的工作的批评和意见，维护群众的正当权利和利益，做好群众的思想政治工作。</h3>
+                    <ul>
+                    	<p>A、党组织</p><p>B、党员</p><p>C、书记</p><p>D、班子成员</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_200" id="formquestion_200" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('200');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】B</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>24、在党组织讨论决定对党员的党纪处分或作出鉴定时，下列说法中正确的是（）。</h3>
+                    <ul>
+                    	<p>A、本人无权参加</p><p>B、本人无权进行申辩</p><p>C、其他党员不可以为他作证和辩护</p><p>D、本人有权参加和进行申辩</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_203" id="formquestion_203" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('203');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】D</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>25、当党员对党的决议和政策有不同意见时，下列说法中正确的是（）。</h3>
+                    <ul>
+                    	<p>A、可以不执行党的决议和政策</p><p>B、在坚决执行的前提下，可以声明保留，并且可以把自己的意见向党的上级组织直至中央提出</p><p>C、不允许向上级组织提出自己的意见</p><p>D、只允许向上一级组织提出自己的意见，不能向中央提出</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_204" id="formquestion_204" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('204');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】B</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>26、预备党员预备期满后，党组织经过考察认为其不履行党员义务，不具备党员条件的，应当（）。</h3>
+                    <ul>
+                    	<p>A、留党察看</p><p>B、延长预备期</p><p>C、取消预备党员资格</p><p>D、给予党纪处分</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_211" id="formquestion_211" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('211');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】C</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>27、发展党员，必须坚持（）的原则。</h3>
+                    <ul>
+                    	<p>A、集体吸收</p><p>B、个别吸收</p><p>C、个别吸收和集体吸收相结合</p><p>D、宽严结合</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_214" id="formquestion_214" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('214');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】B</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>28、党的各级委员会实行（）的制度。</h3>
+                    <ul>
+                    	<p>A、支部书记负责</p><p>B、集体领导</p><p>C、个人分工负责</p><p>D、集体领导和个人分工负责相结合</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_221" id="formquestion_221" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('221');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】D</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>29、测试导入试题</h3>
+                    <ul>
+                    	A,B,C,D四个选项                    </ul>
+                    <span class="examquestionform" name="formquestion_774" id="formquestion_774" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('774');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】C</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10">选C</li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>30、<p>测试题冒题</p></h3>
+                	                	                	                	<h3>(1)<p>测试子试题</p></h3>
+                    <ul>
+                    	                    </ul>
+                    <span class="examquestionform" name="formquestion_772" id="formquestion_772" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+    					<div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('772');">收藏</a>】</span>
+                        <span class="font_12 float_r cz">【<a href="javascript:question_error('772');">错题举报</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题答案：</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】</li>
+                            <li class="ml_10 mb_10">A</li>
+                        	<li class="blue">【您的答案】</li>
+                            <li class="ml_10 mb_10"></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                                                        </div>
+                                                                                                                                <h4 class="qu_type">二、多选题</h4>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>1、1940年3月,中共中央发出《抗日根据地的政权问题》的指示,提出在抗日根据地政府人员的构成上实行"三三制"原则，即（）。</h3>
+                    <ul>
+                    	<p>A、共产党员占三分之一</p><p>B、非党的左派进步分子占三分之一</p><p>C、中间派占三分之一</p><p>D、民主党派占三分之一</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_236" id="formquestion_236" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('236');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】ABC</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>2、党的七大总结历史经验,把党在长期奋斗中形成的优良传统作风概括为三大作风,即（）。</h3>
+                    <ul>
+                    	<p>A、理论和实践相结合的作风</p><p>B、自我批评的作风</p><p>C、C、全心全意为人民服务的作风</p><p>D、和人民群众紧密联系在一起的作风</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_239" id="formquestion_239" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('239');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】ABD</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>3、新民主主义革命就是"新式的特殊的资产阶级民主主义革命"，它的基本特点是（）</h3>
+                    <ul>
+                    	<p>A、它有新的领导阶级即无产阶级</p><p>B、它有新的指导思想即马克思主义</p><p>C、它属于世界无产阶级革命的一部分</p><p>D、它有了新的前途，经过新民主主义革命进而达到社会主义的目标</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_251" id="formquestion_251" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('251');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】ABCD</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>4、中共十六大报告指出，为完成党在新世纪新阶段全面建设小康社会的奋斗目标（）</h3>
+                    <ul>
+                    	<p>A、发展要有新思路</p><p>B、改革要有新突破</p><p>C、开放要有新局面</p><p>D、各项工作要有新举措</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_259" id="formquestion_259" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('259');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】ABCD</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>5、与时俱进，就是党的全部理论和工作要（）</h3>
+                    <ul>
+                    	<p>A、体现时代性</p><p>B、忠于实践性</p><p>C、把握规律性</p><p>D、富于创造性</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_269" id="formquestion_269" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('269');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】ACD</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>6、下级组织如果认为上级组织的决定不符合本地区、本部门的实际情况，可以请求改变（）；如果上级组织坚持原决定，下级组织必须执行，并不得（），但有权向再上一级组织报告。（）</h3>
+                    <ul>
+                    	<p>A、取消</p><p>B、改变</p><p>C、不执行</p><p>D、公开发表不同意见</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_337" id="formquestion_337" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('337');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】BD</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>7、中央书记处成员由（）会提名，（）通过。（）</h3>
+                    <ul>
+                    	<p>A、中央委员会总书记</p><p>B、中央政治局常务委员</p><p>C、中央委员会全体会议</p><p>D、全国党代会</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_340" id="formquestion_340" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('340');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】BC</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>8、党的地方各级委员会的（）定期向委员会全体会议报告工作，接受（）。（）</h3>
+                    <ul>
+                    	<p>A、常务委员会</p><p>B、常委</p><p>C、审查</p><p>D、监督</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_343" id="formquestion_343" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('343');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】AD</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>9、党内严格禁止用违反党章和（）的手段对待党员，严格禁止打击报复和诬告陷害。违反这些规定的组织或（）必须受到党的纪律和国家法律的追究。（）</h3>
+                    <ul>
+                    	<p>A、党的纪律</p><p>B、国家法律</p><p>C、个人</p><p>D、领导</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_353" id="formquestion_353" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('353');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】BC</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>10、中国共产党以马克思列宁主义、毛泽东思想、（）、"三个代表"重要思想和（）作为自己的行动指南。（）</h3>
+                    <ul>
+                    	<p>A、邓小平理论</p><p>B、科学发展观</p><p>C、中国特色社会主义理论</p><p>D、社会主义荣辱观</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_358" id="formquestion_358" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('358');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】AB</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>11、"三个代表"重要思想反映了当代世界和中国的发展变化对（）的新要求，是加强和改进党的建设、推进我国社会主义（）和发展的强大（）武器。（）</h3>
+                    <ul>
+                    	<p>A、党的工作</p><p>B、党和国家工作</p><p>C、自我完善</p><p>D、理论</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_361" id="formquestion_361" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('361');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】BCD</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>12、下列表述中，正确的是。（）</h3>
+                    <ul>
+                    	<p>A、邓小平理论是毛泽东思想在新的历史条件下的继承和发展</p><p>B、邓小平理论是马克思主义在中国发展的新阶段</p><p>C、科学发展观，是同马克思列宁主义、毛泽东思想、邓小平理论、"三个代表"重要思想既一脉相承又与时俱进的科学理论</p><p>D、科学发展观是马克思主义中国化最新成果</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_376" id="formquestion_376" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('376');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】ABCD</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>13、党员缺乏革命意志，（），（），经党的支部对其进行教育并在限期内仍无改正和转变的，党组织应当劝其退党。（）</h3>
+                    <ul>
+                    	<p>A、不履行党员义务</p><p>B、不行使党员权利</p><p>C、不符合党员条件</p><p>D、不按时交纳党费</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_382" id="formquestion_382" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('382');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】AC</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>14、要以改革创新精神全面推进党的建设新的伟大工程，整体推进党的（）、组织建设、作风建设、（）、制度建设，全面提高党的建设科学化水平。（）</h3>
+                    <ul>
+                    	<p>A、理论建设</p><p>B、思想建设</p><p>C、政治建设</p><p>D、反腐倡廉建设</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_385" id="formquestion_385" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('385');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】BD</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>15、禁止党员领导干部脱离实际，弄虚作假，损害群众利益和党群干群关系，不准有以下哪些行为：（）。</h3>
+                    <ul>
+                    	<p>A、搞劳民伤财的"形象工程"和沽名钓誉的"政绩工程"；</p><p>B、虚报工作业绩；</p><p>C、在社会保障、政策扶持、救灾救济款物分配等事项中优亲厚友、显失公平；</p><p>D、获取荣誉、职称、学历学位等利益。</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_396" id="formquestion_396" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('396');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】ABC</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;时事&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                                                                                <h4 class="qu_type">三、判断题</h4>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>1、中共中央于1922年9月在上海创办了自己的政治机关报--《向导》周报。</h3>
+                    <ul>
+                    	<p>A、对B、错</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_494" id="formquestion_494" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('494');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】B</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>2、1929年12月，在福建省上杭古田召开了中国工农红军第一军党的第九次代表大会，即古田会议。</h3>
+                    <ul>
+                    	<p>A、对B、错</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_499" id="formquestion_499" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('499');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】B</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>3、1971年4月，应中国邀请，美国乒乓球代表团访问中国，此举打开了中美两国人民友好往来的大门，推动了中美关系的改善，被国际舆论称为"乒乓外交"。</h3>
+                    <ul>
+                    	<p>A、对B、错</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_518" id="formquestion_518" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('518');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】A</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>4、在新的历史时期，统一战线的核心问题是祖国统一的问题。</h3>
+                    <ul>
+                    	<p>A、对B、错</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_526" id="formquestion_526" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('526');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】B</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>5、"三个代表"重要思想抓住"什么是社会主义、怎样建设社会主义"这个根本问题，深刻揭示社会主义的本质，把对社会主义的认识提高到了新的科学水平。</h3>
+                    <ul>
+                    	<p>A、对B、错</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_542" id="formquestion_542" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('542');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】B</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>6、科学发展观，是立足社会主义初级阶段基本国情，总结我国发展实践，借鉴国外发展经验，适应新的发展要求提出的。</h3>
+                    <ul>
+                    	<p>A、对B、错</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_549" id="formquestion_549" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('549');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】A</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>7、以党的十八大为标志，我国进入了全面建成小康社会的新阶段。</h3>
+                    <ul>
+                    	<p>A、对B、错</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_565" id="formquestion_565" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('565');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】A</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>8、党在社会主义初级阶段的基本路线的核心内容是大力发展生产力。</h3>
+                    <ul>
+                    	<p>A、对B、错</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_570" id="formquestion_570" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('570');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】B</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>9、在整个社会主义初级阶段，必须坚持公有制为主体，多种所有制经济共同发展的基本经济制度。</h3>
+                    <ul>
+                    	<p>A、对B、错</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_578" id="formquestion_578" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('578');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】A</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>10、只要承认党的纲领和章程，执行党的决议和按期交纳党费的，就可以申请加入中国共产党。</h3>
+                    <ul>
+                    	<p>A、对B、错</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_595" id="formquestion_595" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('595');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】B</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>11、在组织上先入党，在思想上后入党。</h3>
+                    <ul>
+                    	<p>A、对B、错</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_610" id="formquestion_610" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('610');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】B</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>12、中央委员会总书记负责召集中央政治局会议和中央政治局常务委员会会议，并主持中央书记处的工作。</h3>
+                    <ul>
+                    	<p>A、对B、错</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_631" id="formquestion_631" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('631');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】A</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>13、党的地方各级领导机关，是党的地方各级代表大会和它们所产生的委员会。</h3>
+                    <ul>
+                    	<p>A、对B、错</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_632" id="formquestion_632" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('632');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】A</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>14、党的地方各级代表大会如提前或延期举行，由它选举的委员会的任期相应地改变。</h3>
+                    <ul>
+                    	<p>A、对B、错</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_639" id="formquestion_639" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('639');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】A</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>15、党的各级领导干部，无论是由民主选举产生的，或是由领导机关任命的，他们的职务都不是终身的，都可以变动或解除。</h3>
+                    <ul>
+                    	<p>A、对B、错</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_649" id="formquestion_649" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('649');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】A</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>16、撤销党内职务是党内的最高处分。</h3>
+                    <ul>
+                    	<p>A、对B、错</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_650" id="formquestion_650" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('650');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】B</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>17、对下属单位实行集中统一领导的国家工作部门可以建立党委。</h3>
+                    <ul>
+                    	<p>A、对B、错</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_663" id="formquestion_663" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('663');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】A</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>18、党组的职责是代表上级党委指导本机关和直属组织内党的工作。</h3>
+                    <ul>
+                    	<p>A、对B、错</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_680" id="formquestion_680" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('680');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】A</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>19、每个党员，不论职务高低，都必须编入党的一个支部、小组或其他特定组织。</h3>
+                    <ul>
+                    	<p>A、对B、错</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_681" id="formquestion_681" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('681');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】A</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                <div class="qu_content" onmouseover="this.className='qu_content_hover'" onmouseout="this.className='qu_content'">
+                	<h3>20、党员在留党察看期间，有参加党的有关会议的权利。</h3>
+                    <ul>
+                    	<p>A、对B、错</p>                    </ul>
+                    <span class="examquestionform" name="formquestion_704" id="formquestion_704" rel="nodo">
+                    <div class="qu_option" onmouseover="this.className='qu_option_hover'" onmouseout="this.className='qu_option'">
+                        <div class="float_r ml_10 answer_icon_w"></div>
+                                                <span class="font_12 float_r cz">【<a href="javascript:favorquestion('704');">收藏</a>】</span>
+						<div class="option_single" id="radio">
+                        	<p class=" float_l">本题得分：0</p>
+                        </div>
+                        <div class="clear"></div>
+                                            </div>
+                    <div class="answer">
+                    	<ul>
+                        	<li class="red">【正确答案】A</li>
+                        	<li><span class="blue">【您的答案】</span></li>
+                        	<li>【所在章】&nbsp;&nbsp;抗战史&nbsp;</li>
+                        	<li>【知识点】&nbsp;&nbsp;策略&nbsp;</li>
+                        	<li>【答案解析】</li>
+                        	<li class="ml_10"></li>
+                        </ul>
+                    </div>
+                    </span>
+                </div>
+                                                                                                                                                            </form>
+          	</div>
+    	</div>
+    	<div class="bor_bottom"></div>
+    </div>
+	<!--主体右侧 结束-->
+	<!--尾部-->
+    	<!--尾部-->
+    <div id="footer">Copyright <span class="copyright">&copy;</span> 2018 <a >毕业设计·在线模拟考试系统</a> </div>
+	<!--尾部 结束-->
+</div>	<!--尾部 结束-->
+    <!--返回顶部-->
+    <div id="roll">
+      <div id="roll_top"></div>
+    </div>
+    <!--返回顶部 结束-->
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+		$('#roll').hide();
+		$(window).scroll(function() {
+			if($(window).scrollTop() >= 100){
+				$('#roll').fadeIn(400);
+		    }
+		    else
+		    {
+		    $('#roll').fadeOut(200);
+		    }
+		 });
+		 $('#roll_top').click(function(){$('html,body').animate({scrollTop: '0px'}, 800);});
+	});
+</script>
+</body>
+</html>

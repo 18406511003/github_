@@ -1,0 +1,10 @@
+create table users ( id int(10) not null auto_increment primary key , name varchar(12) not null , pwd varchar(12) not null, email varchar(25) not null,question varchar(30) not null, anwser varchar(30) not null, school varchar(20) not null);
+
+
+create table university ( name varchar(20) not null, college varchar(20) not null, major varchar(20) not null, teacher varchar(8) not null, email varchar(30) not null, schoolinfo varchar(1000) not null,  majorinfo varchar(1000) not null, teacherinfo varchar(600) not null, score varchar(50) not null );
+
+
+create table shiti ( year varchar(15), school varchar(30), subject varchar(20), prof varchar(25), code int(10), href varchar(40) not null);
+
+
+create table comment ( comm_id int(10), shiti_id int(10), user varchar(20) not null, parent_id int(10) , article_id int(10) not null, comm_cont text not null, comm_time varchar(40) );
